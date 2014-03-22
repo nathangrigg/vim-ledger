@@ -337,4 +337,13 @@ endf "}}}
 
 function! s:count_expression(text, expression) "{{{2
   return len(split(a:text, a:expression, 1))-1
-endf "}}}
+endf "}}}1
+
+
+" Nathan's additions {{{1
+" Align commodity to proper column
+let g:ledger_separator_col = 50
+inoremap . .<C-O>:AlignCommodity<CR>
+nnoremap <leader>. :AlignCommodity<CR>
+vnoremap <leader>. :AlignCommodity<CR>
+
