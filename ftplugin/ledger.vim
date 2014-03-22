@@ -347,3 +347,15 @@ inoremap . .<C-O>:AlignCommodity<CR>
 nnoremap <leader>. :AlignCommodity<CR>
 vnoremap <leader>. :AlignCommodity<CR>
 
+" Insert incoming transactions at the bottom
+function! s:InsertIncoming()
+    let incoming = expand('%:h') . '/incoming.ledger'
+    try
+        execute '$read' incoming
+        call system('mv ' . incoming . ' ' . incoming . '~')
+    catch /:E484/
+        echom "Not found: incoming.ledger"
+    endtry
+endfunction
+
+command! Incoming call <SID>InsertIncoming()
