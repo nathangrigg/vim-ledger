@@ -343,9 +343,9 @@ endf "}}}1
 " Nathan's additions {{{1
 " Align commodity to proper column
 let g:ledger_separator_col = 50
-inoremap . .<C-O>:AlignCommodity<CR>
-nnoremap <leader>. :AlignCommodity<CR>
-vnoremap <leader>. :AlignCommodity<CR>
+inoremap <buffer> . .<C-O>:AlignCommodity<CR>
+nnoremap <buffer> <leader>. :AlignCommodity<CR>
+vnoremap <buffer> <leader>. :AlignCommodity<CR>
 
 " Insert incoming transactions at the bottom
 function! s:InsertIncoming()
@@ -358,4 +358,4 @@ function! s:InsertIncoming()
     endtry
 endfunction
 
-command! Incoming call <SID>InsertIncoming()
+command! -buffer Incoming call <SID>InsertIncoming()
