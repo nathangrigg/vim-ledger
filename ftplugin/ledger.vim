@@ -10,13 +10,12 @@ endif
 let b:did_ftplugin = 1
 
 let b:undo_ftplugin = "setlocal ".
-                    \ "foldmethod< foldtext< ".
+                    \ "foldmethod< ".
                     \ "include< comments< commentstring< omnifunc< formatprg<"
 
 " don't fill fold lines --> cleaner look
 setl fillchars="fold: "
-setl foldtext=LedgerFoldText()
-setl foldmethod=syntax
+setl foldmethod=marker
 setl include=^!include
 setl comments=b:;
 setl commentstring=;%s
